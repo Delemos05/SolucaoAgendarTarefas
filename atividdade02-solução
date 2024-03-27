@@ -1,0 +1,25 @@
+public class Main {
+  public static void main(String[] args) {
+    String tarefa = "";
+
+    
+    tarefa = tarefa + cadastrarTarefa("001", "Estudar Java", 10, 11);
+   tarefa += cadastrarTarefa("002", "Fazer compras", 11, 12);
+    tarefa += cadastrarTarefa("003", "Limpar a casa", 12, 14);
+    exibirTarefas(tarefa);
+  }
+
+  private static void exibirTarefas(String tarefa) {
+    System.out.println("Codigo - Tarefa - Inicio - Fim --- Horas Livre");
+    System.out.println(tarefa);
+
+  }
+
+  private static int horasRestantes = 8;
+
+  private static String cadastrarTarefa(String codigo, String descricao, int inicio, int fim) {
+    int duracao = fim - inicio;
+     horasRestantes = horasRestantes - duracao;
+    return String.format("%s - %s - %d - %d --------- %d horas\n", codigo, descricao, inicio, fim, horasRestantes);
+  }
+}
